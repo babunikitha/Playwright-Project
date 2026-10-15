@@ -1,0 +1,35 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://keralaproperty.in/member/login/');
+  await page.getByRole('link', { name: 'New user?' }).click();
+  await page.locator('#listowner').selectOption('builder');
+  await page.locator('#utitle').click();
+  await page.locator('#utitle').fill('NIKITHA ');
+  await page.locator('#utitle').press('CapsLock');
+  await page.locator('#utitle').fill('NIKITHA babu');
+  await page.locator('#umail').click();
+  await page.locator('#umail').fill('babu.nikitha6@gmail.com');
+  await page.locator('#memberpass').click();
+  await page.locator('#memberpass').press('CapsLock');
+  await page.locator('#memberpass').fill('S');
+  await page.locator('#memberpass').press('CapsLock');
+  await page.locator('#memberpass').fill('Sharon@123_dominic');
+  await page.locator('#repass').click();
+  await page.locator('#repass').press('CapsLock');
+  await page.locator('#repass').fill('S');
+  await page.locator('#repass').press('CapsLock');
+  await page.locator('#repass').fill('Sharon@123_dominic');
+  await page.locator('#umobile').click();
+  await page.locator('#umobile').fill('9544357681');
+  await page.getByRole('button', { name: 'Create Account' }).click();
+  await page.locator('#ulogin').click();
+  await page.locator('#ulogin').fill('babu.nikitha6@gmail.com');
+  await page.locator('#upass').click();
+  await page.locator('#upass').press('CapsLock');
+  await page.locator('#upass').fill('S');
+  await page.locator('#upass').press('CapsLock');
+  await page.locator('#upass').fill('Sharon@123_dominic');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.screenshot({ path: 'google.png' });
+});
